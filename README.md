@@ -1,0 +1,173 @@
+# 🏠 HouseRent
+
+A modern **house rental marketplace** built with **Expo (React Native)** — featuring dual roles (Renter & Owner), animated splash, smooth Reanimated transitions, and micro-interactions. Includes a bonus **web version** in `/web`.
+
+> No database required — powered entirely by static JSON data (`assets/houses.json`).
+
+---
+
+## ✨ Features
+
+### 🔍 Renter Role
+- **Browse** listings with animated house cards
+- **Search & filter** by city, type, price range, bedrooms
+- **Sort** by featured / price / rating
+- **Favorites** — persisted via `AsyncStorage`
+- **Interactive Map View** with price-bubble markers (`react-native-maps`)
+- **Detail screen** with image carousel, amenities, mini-map, owner contact
+
+### 🏠 Owner Role
+- **Dashboard** — KPI stats, monthly revenue, status breakdown chart
+- **Manage listings** — add / edit / delete with a rich form
+- **Amenity multi-select**, image URLs, coordinates, featured toggle
+
+### 🎬 Motion & Polish
+- **Animated 3D splash screen** — rotating house SVG with floating sparkles & loading bar (also supports Lottie via `lottie-react-native`)
+- **Screen transitions** using `react-native-reanimated` (fade + slide)
+- **Card entrance animations** — staggered fade-up on scroll
+- **Heart pop** micro-interaction when favoriting
+- **Map pin drop-in** with staggered timing
+- **Dark mode** toggle — fully themed across every surface
+
+### 📦 Reusable Components
+`HouseCard` · `ImageCarousel` · `AnimatedSplash` · `HouseMap` · `DetailModal` · `ListingForm` · `ThemedText` · `ThemedView`
+
+---
+
+## 📱 Screens
+
+```
+app/
+├── (splash)/index.tsx           ← Animated splash screen
+├── (auth)/role-select.tsx       ← Choose Renter or Owner
+├── (renter)/
+│   ├── browse.tsx               ← List + filters
+│   ├── favorites.tsx            ← Saved homes
+│   ├── map.tsx                  ← Interactive map
+│   └── [id].tsx                 ← House details
+└── (owner)/
+    ├── dashboard.tsx            ← Stats & charts
+    ├── listings.tsx             ← Manage listings
+    └── edit/[id].tsx            ← Add / edit form
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js ≥ 18
+- **Expo CLI** — `npm install -g expo-cli`
+- iOS Simulator (Mac) or Android Studio, or the **Expo Go** app on your phone
+
+### Install & run
+
+```bash
+# Clone
+git clone https://github.com/usama500-cs/house-rent-app.git
+cd house-rent-app
+
+# Install dependencies
+npm install
+
+# Start dev server
+npx expo start
+
+# Press 'i' for iOS, 'a' for Android, or scan the QR with Expo Go
+```
+
+### Web version
+
+A parallel **React web app** version lives in `/web`. It uses Tailwind CSS and is a single-file React component.
+
+```bash
+cd web
+# See web/README.md for setup
+```
+
+---
+
+## 🗂 Project Structure
+
+```
+house-rent-app/
+├── app/                         ← Expo Router screens
+├── components/                  ← Reusable RN components
+│   ├── HouseCard.tsx
+│   ├── ImageCarousel.tsx
+│   ├── AnimatedSplash.tsx
+│   ├── HouseMap.tsx
+│   └── ...
+├── assets/
+│   ├── houses.json              ← Sample data (12 listings)
+│   └── images/
+├── constants/
+│   ├── theme.ts                 ← Colors, spacing, typography
+│   └── amenities.ts
+├── hooks/
+│   ├── useFavorites.ts
+│   ├── useTheme.ts
+│   └── useHouses.ts
+├── utils/
+│   └── helpers.ts
+├── web/                         ← Bonus: React web version
+│   ├── App.jsx                  ← Single-file web app
+│   ├── houses.json
+│   └── README.md
+├── app.json                     ← Expo config
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## 🎨 Design System
+
+**Color palette:**
+- Lilac  `#B8A9E8` — primary brand
+- Amber  `#F5A623` — featured / ratings
+- Teal   `#4ECDC4` — info / secondary
+- Coral  `#FF6B6B` — favorite / urgent
+- Green  `#4ADE80` — success / available
+
+**Typography:** SF Pro / Inter · **Radii:** 16px (cards), pill (buttons)
+
+---
+
+## 🧪 Sample Data
+
+`assets/houses.json` contains **12 properties** across 9 US cities with full metadata:
+- title, price, city, address
+- type, bedrooms, bathrooms, area_sqft, rating
+- multiple images, amenities list
+- owner info (name, phone, email, avatar)
+- latitude/longitude for map
+- status (available / rented / pending), featured flag
+
+---
+
+## 🛠 Tech Stack
+
+| Layer          | Choice                                   |
+| -------------- | ---------------------------------------- |
+| Framework      | Expo SDK 51 · React Native · TypeScript  |
+| Navigation     | Expo Router                              |
+| Animations     | `react-native-reanimated` v3             |
+| Splash         | SVG + Reanimated (optional Lottie)       |
+| Map            | `react-native-maps`                      |
+| Persistence    | `@react-native-async-storage/async-storage` |
+| Icons          | `lucide-react-native`                    |
+| Web version    | React + Tailwind CSS                     |
+
+---
+
+## 📝 License
+
+MIT — free to use, modify, and share.
+
+---
+
+## 🤖 Built with Zaro
+
+Generated by **[Zaro AI](https://zaro.ai)** — the AI workspace platform.
